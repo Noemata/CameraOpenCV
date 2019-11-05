@@ -62,6 +62,11 @@ void OpenCVHelper::MotionDetector(SoftwareBitmap^ input, SoftwareBitmap^ output)
     Mat element = getStructuringElement(MORPH_RECT, cv::Size(3, 3));
     erode(temp, temp, element);
     temp.copyTo(outputMat);
+
+	this->panel->Dispatcher->RunAsync(Windows::UI::Core::CoreDispatcherPriority::Normal, ref new Windows::UI::Core::DispatchedHandler([outputMat]
+	{
+		cv::imshow("Contours", outputMat);
+	}));
 }
 
 void OpenCVHelper::Histogram(SoftwareBitmap^ input, SoftwareBitmap^ output)
