@@ -38,6 +38,7 @@ namespace SDKTemplate
             // in order to call methods that are in this class.
             Current = this;
             SampleTitle.Text = FEATURE_NAME;
+            App.container = this.StatusPanel;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)

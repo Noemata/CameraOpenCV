@@ -29,6 +29,12 @@ OpenCVHelper::OpenCVHelper()
     pMOG2 = createBackgroundSubtractorMOG2();
 }
 
+void OpenCVHelper::SetContainer(Panel^ panel)
+{
+	this->panel = panel;
+	cv::winrt_initContainer(panel);
+}
+
 void OpenCVHelper::Blur(SoftwareBitmap^ input, SoftwareBitmap^ output)
 {
     Mat inputMat, outputMat;
@@ -123,6 +129,15 @@ void OpenCVHelper::Contours(SoftwareBitmap^ input, SoftwareBitmap^ output)
     {
         drawContours(outputMat, contours, i, Scalar(255, 0, 0, 255), 2, 8, hierarchy, 0);
     }
+
+	// MP! resolve: how this works.
+	//Mat mOutput = Mat(inputMat.rows, inputMat.cols, CV_8UC4);
+	//
+	//this->panel->Dispatcher->RunAsync(Windows::UI::Core::CoreDispatcherPriority::Normal,
+	//ref new Windows::UI::Core::DispatchedHandler([mOutput]
+	//{
+	//	cv::imshow("Contours", mOutput);
+	//}));
 }
 
 void OpenCVHelper::HoughLines(SoftwareBitmap^ input, SoftwareBitmap^ output) 

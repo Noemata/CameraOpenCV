@@ -16,6 +16,8 @@
 #include <opencv2\video.hpp>
 #include <opencv2\imgproc\types_c.h>
 #include <opencv2\imgproc\imgproc_c.h>
+#include <opencv2\highgui.hpp>
+#include <opencv2\highgui\highgui_winrt.hpp>
 
 namespace OpenCVBridge
 {
@@ -23,6 +25,9 @@ namespace OpenCVBridge
     {
     public:
         OpenCVHelper();
+		property Panel^ panel;
+
+		void SetContainer(Panel^ panel);
 
         // Image processing operators
         void Blur(

@@ -58,6 +58,7 @@ namespace SDKTemplate
         public Scenario1_ExampleOperations()
         {
             this.InitializeComponent();
+
             _previewRenderer = new FrameRenderer(PreviewImage);
             _outputRenderer = new FrameRenderer(OutputImage);
 
@@ -68,6 +69,7 @@ namespace SDKTemplate
                 Interval = TimeSpan.FromSeconds(1)
             };
             _FPSTimer.Tick += UpdateFPS;
+
         }
 
         /// <summary>
@@ -115,6 +117,8 @@ namespace SDKTemplate
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            App.dispatcher = this.Dispatcher;
+            _helper.SetContainer(App.container);
             rootPage = MainPage.Current;
 
             // setting up the combobox, and default operation
