@@ -38,6 +38,7 @@ void OpenCVHelper::SetContainer(Panel^ panel)
 void OpenCVHelper::Blur(SoftwareBitmap^ input, SoftwareBitmap^ output)
 {
     Mat inputMat, outputMat;
+
     if (!(TryConvert(input, inputMat) && TryConvert(output, outputMat)))
     {
         return;
@@ -49,6 +50,7 @@ void OpenCVHelper::Blur(SoftwareBitmap^ input, SoftwareBitmap^ output)
 void OpenCVHelper::MotionDetector(SoftwareBitmap^ input, SoftwareBitmap^ output)
 {
     Mat inputMat, outputMat;
+
     if (!(TryConvert(input, inputMat) && TryConvert(output, outputMat)))
     {
         return;
@@ -63,6 +65,7 @@ void OpenCVHelper::MotionDetector(SoftwareBitmap^ input, SoftwareBitmap^ output)
     erode(temp, temp, element);
     temp.copyTo(outputMat);
 
+	// Must update on UI thread.
 	this->panel->Dispatcher->RunAsync(Windows::UI::Core::CoreDispatcherPriority::Normal, ref new Windows::UI::Core::DispatchedHandler([outputMat]
 	{
 		cv::imshow("Contours", outputMat);
@@ -72,6 +75,7 @@ void OpenCVHelper::MotionDetector(SoftwareBitmap^ input, SoftwareBitmap^ output)
 void OpenCVHelper::Histogram(SoftwareBitmap^ input, SoftwareBitmap^ output)
 {
     Mat inputMat, outputMat;
+
     if (!(TryConvert(input, inputMat) && TryConvert(output, outputMat)))
     {
         return;
@@ -94,6 +98,7 @@ void OpenCVHelper::Histogram(SoftwareBitmap^ input, SoftwareBitmap^ output)
     normalize(b_hist, b_hist, 0, outputMat.rows, NORM_MINMAX, -1, Mat());
     normalize(g_hist, g_hist, 0, outputMat.rows, NORM_MINMAX, -1, Mat());
     normalize(r_hist, r_hist, 0, outputMat.rows, NORM_MINMAX, -1, Mat());
+
     for (int i = 1; i < histSize; i++)
     {
         int x1 = cvRound(bin_w * (i - 1));
@@ -110,9 +115,10 @@ void OpenCVHelper::Histogram(SoftwareBitmap^ input, SoftwareBitmap^ output)
     }
 }
 
-void OpenCVHelper::Contours(SoftwareBitmap^ input, SoftwareBitmap^ output) 
+void OpenCVHelper::Contours(SoftwareBitmap^ input, SoftwareBitmap^ output)
 {
     Mat inputMat, outputMat;
+
     if (!(TryConvert(input, inputMat) && TryConvert(output, outputMat)))
     {
         return;
@@ -145,6 +151,7 @@ void OpenCVHelper::Contours(SoftwareBitmap^ input, SoftwareBitmap^ output)
 void OpenCVHelper::HoughLines(SoftwareBitmap^ input, SoftwareBitmap^ output) 
 {
     Mat inputMat, outputMat;
+
     if (!(TryConvert(input, inputMat) && TryConvert(output, outputMat)))
     {
         return;
@@ -168,6 +175,7 @@ bool OpenCVHelper::TryConvert(SoftwareBitmap^ from, Mat& convertedMat)
 {
     unsigned char* pPixels = nullptr;
     unsigned int capacity = 0;
+
     if (!GetPointerToPixelData(from, &pPixels, &capacity))
     {
         return false;
@@ -190,6 +198,7 @@ bool OpenCVHelper::GetPointerToPixelData(SoftwareBitmap^ bitmap, unsigned char**
     IMemoryBufferReference^ reference = bmpBuffer->CreateReference();
 
     ComPtr<IMemoryBufferByteAccess> pBufferByteAccess;
+
     if ((reinterpret_cast<IInspectable*>(reference)->QueryInterface(IID_PPV_ARGS(&pBufferByteAccess))) != S_OK)
     {
         return false;

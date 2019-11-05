@@ -12,3 +12,6 @@ https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/Camer
 
 2. Adjust project settings to reference where things land on your system
 
+## Linker Settings Screenshot
+![Screenshot](https://github.com/Noemata/CameraOpenCV/raw/master/LinkerSettingsScreenshot.png)
+

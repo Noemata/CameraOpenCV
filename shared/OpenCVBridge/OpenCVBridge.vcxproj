@@ -166,6 +166,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>opencv_core.lib;opencv_imgproc.lib;opencv_imgcodecs.lib;opencv_objdetect.lib;opencv_ml.lib;WindowsApp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Samples\vcpkg\packages\opencv4_ARM-uwp\debug\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM'">
@@ -181,6 +183,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>opencv_core.lib;opencv_imgproc.lib;opencv_imgcodecs.lib;opencv_objdetect.lib;opencv_ml.lib;WindowsApp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Samples\vcpkg\packages\opencv4_ARM-uwp\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -196,6 +200,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>opencv_core.lib;opencv_imgproc.lib;opencv_imgcodecs.lib;opencv_objdetect.lib;opencv_ml.lib;WindowsApp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Samples\vcpkg\packages\opencv4_x64-uwp\debug\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -211,6 +217,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+      <AdditionalDependencies>opencv_core.lib;opencv_imgproc.lib;opencv_imgcodecs.lib;opencv_objdetect.lib;opencv_ml.lib;WindowsApp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>D:\Samples\vcpkg\packages\opencv4_x64-uwp\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
