@@ -38,7 +38,8 @@ namespace SDKTemplate
             // in order to call methods that are in this class.
             Current = this;
             SampleTitle.Text = FEATURE_NAME;
-            App.container = this.StatusPanel;
+
+            App.container = this.cvContainer;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -71,7 +72,7 @@ namespace SDKTemplate
         private void ScenarioControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             // Clear the status block when navigating scenarios.
-            NotifyUser(String.Empty, NotifyType.StatusMessage);
+            NotifyUser("Scanning ...", NotifyType.StatusMessage);
 
             ListBox scenarioListBox = sender as ListBox;
             Scenario s = scenarioListBox.SelectedItem as Scenario;
