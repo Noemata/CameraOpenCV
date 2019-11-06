@@ -166,7 +166,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
-      <AdditionalDependencies>opencv_core.lib;opencv_imgproc.lib;opencv_imgcodecs.lib;opencv_objdetect.lib;opencv_ml.lib;WindowsApp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opencv_cored.lib;opencv_imgprocd.lib;opencv_imgcodecsd.lib;opencv_objdetectd.lib;opencv_mld.lib;WindowsApp.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>D:\Samples\vcpkg\packages\opencv4_ARM-uwp\debug\lib;</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

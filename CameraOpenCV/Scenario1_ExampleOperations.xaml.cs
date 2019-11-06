@@ -225,6 +225,12 @@ namespace SDKTemplate
         private void OperationComboBox_SelectionChanged(object sender, RoutedEventArgs e)
         {
             currentOperation = (OperationType)((sender as ComboBox).SelectedItem);
+
+            if (OperationType.Contours != currentOperation)
+                App.container.Visibility = Visibility.Collapsed;
+            else
+                App.container.Visibility = Visibility.Visible;
+
             if (OperationType.Blur == currentOperation)
             {
                 this.CurrentOperationTextBlock.Text = "Current: Blur";

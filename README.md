@@ -15,3 +15,4 @@ https://github.com/microsoft/Windows-universal-samples/tree/master/Samples/Camer
 ### Linker Settings Screenshot
 ![Screenshot](https://github.com/Noemata/CameraOpenCV/raw/master/LinkerSettingsScreenshot.png)
 
+![Screenshot](https://github.com/Noemata/CameraOpenCV/raw/master/LinkerLibsScreenshot.png)
